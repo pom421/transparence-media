@@ -1,0 +1,16 @@
+---
+
+const list = Astro.props.list;
+---
+
+<h1>Liste media (astro component)</h1>
+
+<ul>
+  {list.map((media) => (
+    <li>
+      <h2>{media.data["nom"]}</h2>
+      <a href={media.data["site_web"]}>{media.data["site_web"]}</a>
+      <pre>{JSON.stringify(media.data, null, 2)}</pre>      
+    </li>
+  ))}
+</ul>

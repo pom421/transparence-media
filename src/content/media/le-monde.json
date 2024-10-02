@@ -1,0 +1,12 @@
+{
+  "id": "le_monde",
+  "nom": "Le Monde",
+  "revenus": ["Publicité", "Abonnements"],
+  "annee_creation": 1944,
+  "site_web": "http://lemonde.fr",
+  "wikipedia": "w:Le_Monde",
+  "type": "Journal",
+  "periodicite": "Quotidien",
+  "echelle": "Nationale",
+  "devise": "Le quotidien français de référence"
+}

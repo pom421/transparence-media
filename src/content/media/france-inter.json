@@ -1,0 +1,10 @@
+{
+  "id": "france-inter",
+  "nom": "France Inter",
+  "revenus": ["État", "Publicité"],
+  "annee_creation": 1944,
+  "site_web": "https://www.radiofrance.fr/franceinter",
+  "wikipedia": "w:France_Inter",
+  "type": "Radio",
+  "echelle": "Nationale"
+}
