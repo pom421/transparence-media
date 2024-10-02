@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+    const allMedia = await getCollection("media");
+
+    return allMedia.map(medium => ({ params: { id: medium.id}}));
+    
+}
+
+const { id } = Astro.params;
+
+const infos = await getEntry("media", id)
+
+---
+
+<Layout title="Media">
+    <h1>{id}</h1>
+
+    <hr class="my-6">
+
+    <pre>{JSON.stringify(infos, null, 2)}</pre>
+</Layout>
+

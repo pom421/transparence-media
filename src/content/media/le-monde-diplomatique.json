@@ -1,0 +1,26 @@
+{
+    "id": "le-monde-diplomatique",
+    "nom": "Le Monde Diplomatique",
+    "revenus": ["Publicité", "Abonnements"],
+    "annee_creation": 1954,
+    "site_web": "http://www.monde-diplomatique.fr",
+    "wikipedia_id": "Le_Monde_diplomatique",
+    "type": "Journal",
+    "periodicite": "Mensuel",
+    "echelle": "Nationale",
+    "devise": "Le titre français le plus diffusé dans le monde",
+    "actionnaires": [
+        {
+            "id": "le-monde",
+            "pourcentage": 51
+        },
+         {
+            "id": "amis-du-monde-diplomatique",
+            "pourcentage": 25
+         }, {
+            "id": "gunther-holzmann",
+            "pourcentage": 24
+         }
+    ]
+  }
+  

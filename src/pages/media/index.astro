@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MediaList from '../../components/MediaList.astro';
+import { getCollection } from 'astro:content';
+
+const allMedia = await getCollection("media");
+
+console.log("allMedia", allMedia);
+
+---
+
+<Layout title="Liste des media">
+	<main>
+		<MediaList list={allMedia} />
+	</main>
+</Layout>
+
+<style>
+</style>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+    const actionnaires = await getCollection("actionnaires");
+
+    return actionnaires.map(actionnaire => ({ params: { id: actionnaire.id}}));
+    
+}
+
+const { id } = Astro.params;
+
+const infos = await getEntry("actionnaires", id)
+
+---
+
+<Layout title="Actionnaires">
+    <h1>{id}</h1>
+
+    <hr class="my-6">
+
+    <pre>{JSON.stringify(infos, null, 2)}</pre>
+</Layout>
+

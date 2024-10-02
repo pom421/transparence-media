@@ -3,12 +3,12 @@
 const list = Astro.props.list;
 ---
 
-<h1 class="mb-12">Media</h1>
+<h1 class="mb-12">Actionnaires</h1>
 
 <ul class="flex flex-col gap-6">
-  {list.map((media) => (
+  {list.map((actionnaire) => (
     <li>
-      <h2><a href={`/media/${media.data["id"]}`}>{media.data["nom"]}</a></h2>
+      <h2><a href={`/actionnaires/${actionnaire.data["id"]}`}>{actionnaire.data["nom"]}</a></h2>
       {/* <a href={media.data["site_web"]}>{media.data["site_web"]}</a> */}
       {/* <pre>{JSON.stringify(media.data, null, 2)}</pre> */}
     </li>

@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MediaList from '../../components/MediaList.astro';
+import { getCollection } from 'astro:content';
+import Actionnaires from "../../components/Actionnaires.astro";
+
+const actionnaires = await getCollection("actionnaires");
+
+console.log("actionnaires", actionnaires);
+
+---
+
+<Layout title="Liste des media">
+	<main>
+		<Actionnaires list={actionnaires} />
+	</main>
+</Layout>
+
+<style>
+</style>

@@ -1,4 +1,4 @@
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection, reference } from 'astro:content';
 
 const mediaEx = [
     {
@@ -52,14 +52,20 @@ const mediaEx = [
 
 ]
 
+const MediaActionnairesSchema = z.object({
+    id: reference("actionnaires"),
+    pourcentage: z.number().optional(),
+});
+
 const MediaBaseSchema = z.object({
     id: z.string(),
     nom: z.string(),
     annee_creation: z.number().optional(),
     revenus: z.array(z.enum(["Publicité", "Abonnements", "État"])).optional(),
-    id_wikipedia: z.string().optional().describe("L'identifiant wikipedia du média"),
+    wikipedia_id: z.string().optional().describe("L'identifiant wikipedia du média"),
     site_web: z.string().url().optional().describe("Le site web du média"),
     urls_associees: z.array(z.string().url()).optional().describe("Les urls pour lesquelles on voudra afficher les informations sur ce media"),
+    actionnaires: z.array(MediaActionnairesSchema).optional().describe("Les actionnaires de ce média"),
   });
   
   // Groupe de Presse Écrite.
@@ -98,8 +104,30 @@ const MediaBaseSchema = z.object({
   });
 
 
+  // type from entites.yaml : ["individu", "société", "organisation religieuse", "pays", "actionnaires externes", "association 1901", "holding", "société des amis", "groupe"]
+
+//Personnes morales de droit privé	Sociétés (SARL, SA), Associations, Fondations, Coopératives
+//Personnes morales de droit public	État, Collectivités territoriales, Établissements publics
+//Personnes morales hybrides	Sociétés d’économie mixte (SEM), GIE, PPP
+
+  export const ActionnaireSchema = z.object({
+    id: z.string(),
+    nom: z.string(),
+    annee_naissance: z.number().optional(),
+    type: z.enum(["Personne physique", "Société", "Association", "Fondation", "Coopérative", "État", "Collectivité territoriale", "Établissement public"]).optional(),
+    wikipedia_id: z.string().optional().describe("L'identifiant wikipedia de l'actionnaire"),
+   
+  });
+
+  const actionnaires = defineCollection({
+    type: 'data',
+    schema: ActionnaireSchema,
+  });
+
+
   
 
 export const collections = {
     'media': media,
+    'actionnaires': actionnaires,
 };
