@@ -14,13 +14,29 @@ const { id } = Astro.params;
 
 const infos = await getEntry("actionnaires", id)
 
+const mediaPossedes = await getCollection("media", ({ data }) => 
+    data["actionnaires"] && (data["actionnaires"].map(actionnaire => actionnaire.id.id)).includes(id)
+);
+
 ---
 
 <Layout title="Actionnaires">
-    <h1>{id}</h1>
+    <h1>{infos.data.nom}</h1>
 
     <hr class="my-6">
 
     <pre>{JSON.stringify(infos, null, 2)}</pre>
+
+    <h2 class="my-6">Poids dans les media</h2>
+
+    <ul>
+    {mediaPossedes.map(medium => (
+        <li>
+            <h3><a href={`/media/${medium.id}`}>{medium.data["nom"]}</a> | {medium.data.actionnaires.map(actionnaire => (
+                actionnaire.id.id == id ? `${actionnaire.pourcentage} %` : null
+            ))}</h3>
+        </li>
+    ))}
+    </ul>
 </Layout>
 
