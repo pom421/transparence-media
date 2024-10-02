@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../.astro/collections/media.schema.json",
     "id": "le-monde-diplomatique",
     "nom": "Le Monde Diplomatique",
     "revenus": ["Publicité", "Abonnements"],

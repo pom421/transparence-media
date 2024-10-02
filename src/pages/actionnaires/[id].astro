@@ -32,7 +32,7 @@ const mediaPossedes = await getCollection("media", ({ data }) =>
     <ul>
     {mediaPossedes.map(medium => (
         <li>
-            <h3><a href={`/media/${medium.id}`}>{medium.data["nom"]}</a> | {medium.data.actionnaires.map(actionnaire => (
+            <h3><a href={`/media/${medium.id}`}>{medium.data["nom"]}</a> | {medium.data.actionnaires?.map(actionnaire => (
                 actionnaire.id.id == id ? `${actionnaire.pourcentage} %` : null
             ))}</h3>
         </li>

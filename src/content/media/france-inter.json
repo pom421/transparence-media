@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../.astro/collections/media.schema.json",
   "id": "france-inter",
   "nom": "France Inter",
   "revenus": ["État", "Publicité"],
