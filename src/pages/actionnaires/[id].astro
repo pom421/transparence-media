@@ -15,7 +15,7 @@ const { id } = Astro.params;
 const infos = await getEntry("actionnaires", id)
 
 const mediaPossedes = await getCollection("media", ({ data }) => 
-    data["actionnaires"] && (data["actionnaires"].map(actionnaire => actionnaire.id.id)).includes(id)
+    data["actionnaires"] && (data["actionnaires"].map(data => data.actionnaire.id)).includes(id)
 );
 
 ---
@@ -32,8 +32,8 @@ const mediaPossedes = await getCollection("media", ({ data }) =>
     <ul>
     {mediaPossedes.map(medium => (
         <li>
-            <h3><a href={`/media/${medium.id}`}>{medium.data["nom"]}</a> | {medium.data.actionnaires?.map(actionnaire => (
-                actionnaire.id.id == id ? `${actionnaire.pourcentage} %` : null
+            <h3><a href={`/media/${medium.id}`}>{medium.data["nom"]}</a> | {medium.data.actionnaires?.map(data => (
+                data.actionnaire.id == id ? `${data.pourcentage} %` : null
             ))}</h3>
         </li>
     ))}

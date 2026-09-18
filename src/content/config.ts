@@ -53,7 +53,7 @@ const mediaEx = [
 ]
 
 const MediaActionnairesSchema = z.object({
-    id: reference("actionnaires"),
+    actionnaire: reference("actionnaires"),
     pourcentage: z.number().optional(),
 });
 

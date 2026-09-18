@@ -12,14 +12,14 @@
     "devise": "Le titre français le plus diffusé dans le monde",
     "actionnaires": [
         {
-            "id": "le-monde",
+            "actionnaire": "le-monde",
             "pourcentage": 51
         },
          {
-            "id": "amis-du-monde-diplomatique",
+            "actionnaire": "amis-du-monde-diplomatique",
             "pourcentage": 25
          }, {
-            "id": "gunther-holzmann",
+            "actionnaire": "gunther-holzmann",
             "pourcentage": 24
          }
     ]
